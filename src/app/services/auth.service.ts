@@ -24,4 +24,7 @@ export class AuthService {
       this.router.navigate(['/login']);
     });
   }
+  getUser() {
+    return this.httpService.post('details', null);
+  }
 }
