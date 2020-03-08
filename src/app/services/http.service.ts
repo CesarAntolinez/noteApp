@@ -10,21 +10,21 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   post(serviceName: string, data: any) {
-    const header = new HttpHeaders();
+    const header = new HttpHeaders().set('Content-Type', 'application/json');
     const options = { headers: header, withCredintials: false };
     const url = environment.apiUrl + serviceName;
 
     return this.http.post(url, JSON.stringify(data), options);
   }
   put(serviceName: string, data: any) {
-    const header = new HttpHeaders();
+    const header = new HttpHeaders().set('Content-Type', 'application/json');
     const options = { headers: header, withCredintials: false};
     const url = environment.apiUrl + serviceName;
 
     return this.http.put(url, JSON.stringify(data), options);
   }
   delete(serviceName: string, data: any) {
-    const header = new HttpHeaders();
+    const header = new HttpHeaders().set('Content-Type', 'application/json');
     const options = { headers: header, withCredintials: false };
     const url = environment.apiUrl + serviceName;
 
