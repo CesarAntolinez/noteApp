@@ -20,6 +20,10 @@ export class StorageService {
 // Get the value
   async get(storageKey: string) {
     const ret = await Storage.get({ key: storageKey });
+    if (ret.value == null) {
+      console.log(ret);
+      return null;
+    }
     return JSON.parse(unescape(atob(ret.value)));
   }
 

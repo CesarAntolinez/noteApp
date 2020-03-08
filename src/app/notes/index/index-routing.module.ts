@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IndexPage } from './index.page';
+import {HomeGuard} from '../../guards/home.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: IndexPage
+    component: IndexPage,
+    // canActivate: [HomeGuard]
   }
 ];
 

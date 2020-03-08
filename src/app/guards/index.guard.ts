@@ -15,9 +15,8 @@ export class IndexGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return new Promise(resolve => {
       this.storageService.get(AuthConstants.AUTH).then(response => {
-        console.log(response);
         if (response) {
-          this.route.navigate(['/home']);
+          this.route.navigate(['notes/index']);
           resolve(false);
         } else {
           resolve(true);
