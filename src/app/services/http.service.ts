@@ -30,4 +30,11 @@ export class HttpService {
 
     return this.http.delete(url, options);
   }
+  get(serviceName: string, data: any) {
+    const headers = new HttpHeaders();
+    const options = { headers: headers, withCredintials: false };
+    const url = environment.apiUrl + serviceName;
+
+    return this.http.get(url, options);
+  }
 }
