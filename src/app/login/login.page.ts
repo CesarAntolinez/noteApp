@@ -39,7 +39,7 @@ export class LoginPage implements OnInit {
                         // Storing the User data.
                         this.storageService.store(AuthConstants.AUTH, res.success);
                         this.toastService.presentToast('Connected.');
-                        this.router.navigate(['/home']);
+                        this.router.navigate(['/notes/index']);
                     } else {
                         this.toastService.presentToast('Incorrect username and password.');
                     }

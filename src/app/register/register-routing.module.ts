@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LoginPage } from './login.page';
+import { RegisterPage } from './register.page';
 import {IndexGuard} from '../guards/index.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: LoginPage,
+    component: RegisterPage,
     canActivate: [IndexGuard]
   }
 ];
@@ -16,4 +16,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class LoginPageRoutingModule {}
+export class RegisterPageRoutingModule {}
