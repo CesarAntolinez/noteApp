@@ -3,12 +3,16 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IndexPage } from './index.page';
 import {HomeGuard} from '../../guards/home.guard';
+import {UserDataResolver} from '../../resolvers/user-data.resolver';
 
 const routes: Routes = [
   {
     path: '',
     component: IndexPage,
-    // canActivate: [HomeGuard]
+    canActivate: [HomeGuard],
+    resolve: {
+      userData: UserDataResolver
+    },
   }
 ];
 

@@ -12,7 +12,7 @@ export class AuthService {
   userData$ = new BehaviorSubject<any>([]);
   constructor(private httpService: HttpService, private storageService: StorageService, private router: Router) { }
 
-  getUserData() {
+  getToken() {
     this.storageService.get(AuthConstants.AUTH).then(res => {
       this.userData$.next(res);
     });

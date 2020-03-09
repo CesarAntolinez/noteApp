@@ -8,6 +8,27 @@
     <ion-title>Notes</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content>
 
+<ion-content>
+  <ion-card *ngFor="let item of list">
+    <ion-card-content>
+      {{ item.note }}
+    </ion-card-content>
+    <ion-footer>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-button color="primary">
+            <ion-icon slot="start" name="create-outline"></ion-icon>
+            <ion-label>Edit</ion-label>
+          </ion-button>
+        </ion-col>
+        <ion-col class="ion-text-center">
+          <ion-button color="danger">
+            <ion-icon slot="start" name="trash-outline"></ion-icon>
+            <ion-label>Delete</ion-label>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-footer>
+  </ion-card>
 </ion-content>
