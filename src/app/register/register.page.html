@@ -6,25 +6,25 @@
     <ion-list>
       <ion-item>
         <ion-label position="stacked">Email</ion-label>
-        <ion-input autocomplete="off" name="email" type="email"></ion-input>
+        <ion-input autocomplete="off" name="email" type="email" [(ngModel)]="postData.email"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Identification Card</ion-label>
-        <ion-input autocomplete="off" name="identification_card" type="text"></ion-input>
+        <ion-input autocomplete="off" name="identification_card" type="text" [(ngModel)]="postData.identification_card"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Name</ion-label>
-        <ion-input autocomplete="off" name="name" type="text"></ion-input>
+        <ion-input autocomplete="off" name="name" type="text" [(ngModel)]="postData.name"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label position="stacked">Password</ion-label>
-        <ion-input autocomplete="off" name="password" type="password"></ion-input>
+        <ion-input autocomplete="off" name="password" type="password" [(ngModel)]="postData.password"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label position="stacked">Confirm Password</ion-label>
-        <ion-input autocomplete="off" name="c_password" type="password"></ion-input>
+        <ion-input autocomplete="off" name="c_password" type="password" [(ngModel)]="postData.c_password"></ion-input>
       </ion-item>
 
       <ion-item lines='none'>

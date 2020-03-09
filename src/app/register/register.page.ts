@@ -4,6 +4,7 @@ import {ToastService} from '../services/toast.service';
 import {StorageService} from '../services/storage.service';
 import {Router} from '@angular/router';
 import {AuthConstants} from '../config/auth-constants';
+import {MenuController} from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -20,12 +21,14 @@ export class RegisterPage implements OnInit {
     c_password: ''
   };
   // tslint:disable-next-line:max-line-length
-  constructor(private authService: AuthService, private toastService: ToastService, private storageService: StorageService, private router: Router) { }
+  constructor(private authService: AuthService, private toastService: ToastService, private storageService: StorageService, private router: Router, public menuController: MenuController) { }
 
   ngOnInit() {
   }
   validateInputs() {
     console.log(this.postData);
+      // tslint:disable-next-line:variable-name
+    const identification_card = this.postData.identification_card.trim();
     const name = this.postData.name.trim();
     const password = this.postData.password.trim();
     // tslint:disable-next-line:variable-name
@@ -36,9 +39,11 @@ export class RegisterPage implements OnInit {
         this.postData.password &&
         this.postData.email &&
         this.postData.c_password &&
+        this.postData.identification_card &&
         name.length > 0 &&
         email.length > 0 &&
         c_password.length > 0 &&
+        identification_card.length > 0 &&
         password.length > 0
     );
   }
@@ -50,9 +55,9 @@ export class RegisterPage implements OnInit {
             if (res.success) {
               // Storing the User data.
               this.storageService
-                  .store(AuthConstants.AUTH, res.userData)
+                  .store(AuthConstants.AUTH, res.success)
                   .then(response => {
-                    this.router.navigate(['home']);
+                    this.router.navigate(['notes/index']);
                   });
             } else {
               this.toastService.presentToast(
@@ -70,5 +75,9 @@ export class RegisterPage implements OnInit {
       );
     }
   }
+
+    ionViewWillEnter() {
+        this.menuController.enable(false);
+    }
 
 }
