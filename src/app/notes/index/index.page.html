@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let item of list">
+  <ion-card *ngFor="let item of list?.data">
     <ion-card-content>
       {{ item.note }}
     </ion-card-content>

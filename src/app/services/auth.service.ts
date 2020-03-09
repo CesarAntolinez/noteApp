@@ -17,6 +17,11 @@ export class AuthService {
       this.userData$.next(res);
     });
   }
+  getUserData() {
+    return this.userData$.subscribe((res: any) => {
+      return res.valueOf();
+    });
+  }
 
   login(postData: any): Observable<any> {
     return this.httpService.post('login', postData);
