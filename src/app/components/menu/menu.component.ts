@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuController} from '@ionic/angular';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -10,7 +11,7 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  constructor(private menu: MenuController) { }
+  constructor(private menu: MenuController, private authService: AuthService) { }
 
   openFirst() {
     this.menu.enable(true, 'first');
@@ -24,6 +25,10 @@ export class MenuComponent implements OnInit {
   openCustom() {
     this.menu.enable(true, 'custom');
     this.menu.open('custom');
+  }
+
+  logoutAction() {
+    this.authService.logout();
   }
 
 }
